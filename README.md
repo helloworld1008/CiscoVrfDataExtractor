@@ -16,4 +16,53 @@ Create a file and copy the VRF definition section from the Cisco ASR series rout
 
 ```
 $ touch VrfConfig
+$ cat VrfConfig
+vrf Customer_A
+ description **VRF for customer A - Platinum**  
+ address-family ipv4 unicast
+  import route-target
+   10101:15003
+   10101:16102
+   10101:16106
+   10101:16109
+  !
+  export route-target
+   10101:15003
+  !
+ !
+!
+
+vrf Customer_B
+ description "VRF for customer B - Gold"
+ address-family ipv6 unicast
+  import route-target
+   10101:17138
+  !
+  export route-target
+   10101:17138
+  !
+ !
+!
+
+vrf Customer_C
+ description "VRF for customer C - Silver"
+ address-family ipv4 unicast
+  import route-target
+   10101:12629
+  !
+  export route-target
+   10101:12629
+  !
+ !
+ address-family ipv6 unicast
+  import route-target
+   10101:12629
+  !
+  export route-target
+   10101:12629
+  !
+ !
+!
+$
+
 ```
