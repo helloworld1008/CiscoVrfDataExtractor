@@ -66,3 +66,7 @@ vrf Customer_C
 $
 
 ```
+Download this script to your system and give it execute permissions
+```
+$ chmod 755 CiscoVrfDataExtractor.py
+```
