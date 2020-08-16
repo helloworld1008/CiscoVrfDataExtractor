@@ -13,8 +13,6 @@ parser.add_argument("-f", "--file", help="cisco vrf config file", required=True)
 
 args = parser.parse_args()
 
-print ""
-
 input_file = vars(args)['file']
 
 """ Check whether file exists and has read permissions """
@@ -68,10 +66,8 @@ init_vrf_dict()
 
 """ Initialize output file and add first line """
 
-output_file_object = open('/tmp/tmpfile.csv', 'w')
+output_file_object = open('/tmp/vrfdata.csv', 'w')
 output_file_object.write("vrf_name,vrf_description,ipv4_RT_import,ipv4_RT_export,ipv6_RT_import,ipv6_RT_export\n")
-
-print "\n"
 
 for line in open(input_file):
 
@@ -144,4 +140,6 @@ for line in open(input_file):
 
 
 
-write_to_file() 
+write_to_file()
+
+print "\nPlease refer /tmp/vrfdata.csv file for output\n"
